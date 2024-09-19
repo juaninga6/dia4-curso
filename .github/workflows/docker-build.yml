@@ -92,3 +92,12 @@ jobs:
           # Mostrar el resultado HTML
           echo "Respuesta del servicio (HTML):"
           echo "$RESPONSE"
+
+          # Mostrar los logs del port forwarding
+          echo "Logs del port forwarding:"
+          cat port-forward.log
+
+          # Verificar el estado del pod
+          echo "Estado de los pods:"
+          kubectl get pods --selector=app=python-flask-app
+          kubectl describe pod --selector=app=python-flask-app
