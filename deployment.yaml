@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: python-flask-container
-        image: juanurgilesc/my-app:latest
+        image: juanbacan/my-app:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5000
