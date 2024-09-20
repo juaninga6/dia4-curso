@@ -87,17 +87,8 @@ jobs:
       - name: Access Service
         run: |
           nohup kubectl port-forward service/python-flask-service 5000:5000  > port-forward.log 2>&1 &
-          sleep 15s
-          RESPONSE=$(curl -s http://localhost:5000)
+          sleep 3s
+          RESPONSE=$(curl -s http://localhost:30000)
           # Mostrar el resultado HTML
           echo "Respuesta del servicio (HTML):"
           echo "$RESPONSE"
-
-          # Mostrar los logs del port forwarding
-          echo "Logs del port forwarding:"
-          cat port-forward.log
-
-          # Verificar el estado del pod
-          echo "Estado de los pods:"
-          kubectl get pods --selector=app=python-flask-app
-          kubectl describe pod --selector=app=python-flask-app
